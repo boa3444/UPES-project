@@ -18,6 +18,7 @@ int main(){
 	int size, *arr, numb;
 	printf("Type size of your array:");
 	scanf("%d" , &size);
+	arr = (int *) malloc(sizeof(int) * size);
 	printf("Now type the elements:\n");
 	for ( int i = 0 ; i< size; i++)
 	{

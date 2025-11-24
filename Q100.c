@@ -2,40 +2,22 @@
 #include <stdio.h>
 
 int main() {
-    double a, b;
-    char op;
+    double jellyA, jellyB;
+    char goofyOp;
+    if (scanf("%lf %c %lf", &jellyA, &goofyOp, &jellyB) != 3) return 0;
 
-    if (scanf("%lf %c %lf", &a, &op, &b) != 3) return 0;
+    double wobblyOut = 0.0;
+    int okBanana = 1;
 
-    double z = 0;
-    int ok = 1;
-
-    switch (op) {
-        case '+':
-            z = a + b;
-            break;
-        case '-':
-            z = a - b;
-            break;
-        case '*':
-            z = a * b;
-            break;
-        case '/':
-            if (b == 0) {
-                ok = 0;
-            } else {
-                z = a / b;
-            }
-            break;
-        default:
-            ok = 0;
+    switch (goofyOp) {
+        case '+': wobblyOut = jellyA + jellyB; break;
+        case '-': wobblyOut = jellyA - jellyB; break;
+        case '*': wobblyOut = jellyA * jellyB; break;
+        case '/': if (jellyB == 0) okBanana = 0; else wobblyOut = jellyA / jellyB; break;
+        default: okBanana = 0;
     }
 
-    if (!ok) {
-        printf("Error\n");
-    } else {
-        printf("%.6f\n", z);
-    }
-
+    if (!okBanana) printf("Error\n");
+    else printf("%.6f\n", wobblyOut);
     return 0;
 }
